@@ -1,11 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital@0;1&display=swap");
 body {
-  background-color: #E5CFB5;
   font-family: "DM Sans";
 }
 
+* {
+  margin: 0;
+}
+
+.main-1 {
+  background-color: #e5cfb5;
+}
+
 nav {
-  background-color: #E5CFB5;
+  background-color: #e5cfb5;
   color: #1e1e1e;
   padding: 0 20px;
   height: 80px;
@@ -18,15 +25,19 @@ nav {
 }
 
 .menu-button {
-  background-color: #3E2723;
+  background-color: #3e2723;
   width: 75px;
   height: 40px;
   border-radius: 25px;
   align-items: center;
   display: flex;
+  justify-content: center;
+}
+.menu-button a {
+  color: white;
 }
 
-img {
+.caffinlogo {
   grid-area: logo;
   height: 55px;
   width: auto;
@@ -49,4 +60,56 @@ ul li a {
 input,
 label {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px 1fr;
+    grid-template-areas: "logo hamburger" "menu menu";
+    height: auto;
+  }
+  label {
+    display: block;
+    font-size: 30px;
+    justify-self: end;
+  }
+  ul {
+    display: none;
+  }
+  .menu-button {
+    background-color: #3e2723;
+    width: 125px;
+    height: 60px;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .menu-button a {
+    color: white;
+  }
+  .caffinlogo {
+    width: auto;
+    height: 70px;
+  }
+  #open-menu:checked + ul {
+    width: 100%;
+    grid-area: menu;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    flex-direction: column;
+  }
+  #open-menu:checked + ul li {
+    display: block;
+    font-size: 30px;
+    margin: 10px 0;
+    color: #1e1e1e;
+  }
+  #open-menu:checked + ul li a {
+    text-decoration: none;
+    font-size: 45px;
+  }
 }/*# sourceMappingURL=main.css.map */
